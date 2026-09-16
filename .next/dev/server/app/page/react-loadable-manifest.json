@@ -1,0 +1,14 @@
+{
+  "[project]/src/components/three/ShelterScene.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/src/components/three/ShelterScene.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/node_modules_three_build_three_core_18d0oq6.js",
+      "static/chunks/node_modules_three_build_three_module_03rsyo6.js",
+      "static/chunks/node_modules_three_build_three_module_1_wgwg8.js",
+      "static/chunks/node_modules_@react-three_fiber_dist_1i3mcua._.js",
+      "static/chunks/node_modules_three-stdlib_0lgj4a5._.js",
+      "static/chunks/node_modules_0hdn9hl._.js",
+      "static/chunks/src_1iy5x1d._.js"
+    ]
+  }
+}
