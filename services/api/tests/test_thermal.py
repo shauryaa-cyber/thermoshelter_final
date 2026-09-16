@@ -1,10 +1,9 @@
 import pandas as pd
 import pytest
 from app.thermal.comfort import calculate_comfort_metrics
-from app.thermal.envelope import BuildingAssembly, MaterialLayer
+from app.thermal.envelope import BuildingAssembly, EnvelopeComponent, MaterialLayer
 from app.thermal.transient import ThermalSimulationConfig, run_transient_simulation
 from app.thermal.ventilation import VentilationParams
-from app.thermal.envelope import BuildingAssembly, EnvelopeComponent, MaterialLayer
 
 
 def test_envelope_u_value_reduction():
