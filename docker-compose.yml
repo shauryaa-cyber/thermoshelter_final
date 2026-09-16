@@ -1,0 +1,21 @@
+services:
+  api:
+    build:
+      context: ./services/api
+    ports:
+      - "${API_PORT}:8000"
+    environment:
+      ENVIRONMENT: "${ENVIRONMENT}"
+      CORS_ORIGINS: "${CORS_ORIGINS}"
+
+  web:
+    build:
+      context: ./apps/web
+      args:
+        NEXT_PUBLIC_API_BASE_URL: "${NEXT_PUBLIC_API_BASE_URL}"
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: "${NEXT_PUBLIC_API_BASE_URL}"
+    depends_on:
+      - api
