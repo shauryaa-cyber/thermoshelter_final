@@ -4,15 +4,22 @@ from app.thermal.comfort import calculate_comfort_metrics
 from app.thermal.envelope import BuildingAssembly, MaterialLayer
 from app.thermal.transient import ThermalSimulationConfig, run_transient_simulation
 from app.thermal.ventilation import VentilationParams
+from app.thermal.envelope import BuildingAssembly, EnvelopeComponent, MaterialLayer
 
 
 def test_envelope_u_value_reduction():
-    # Adding insulation thickness should lower the U-value
-    thin_layer = MaterialLayer(name="EPS", thickness=0.05, thermal_conductivity=0.035)
-    thick_layer = MaterialLayer(name="EPS", thickness=0.15, thermal_conductivity=0.035)
+    # Adding insulation thickness should lower the component's U-value
+    thin_layer = MaterialLayer(
+        name="EPS", thickness=0.05, thermal_conductivity=0.035
+    )
+    thick_layer = MaterialLayer(
+        name="EPS", thickness=0.15, thermal_conductivity=0.035
+    )
 
-    wall_thin = BuildingAssembly(name="Thin Wall", layers=[thin_layer])
-    wall_thick = BuildingAssembly(name="Thick Wall", layers=[thick_layer])
+    wall_thin = EnvelopeComponent(name="Thin Wall", area=10.0, layers=[thin_layer])
+    wall_thick = EnvelopeComponent(
+        name="Thick Wall", area=10.0, layers=[thick_layer]
+    )
 
     assert wall_thick.u_value < wall_thin.u_value
 
